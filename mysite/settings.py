@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -108,6 +109,17 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+from django.utils.translation import ugettext_lazy as ugettext
+LANGUAGES = (
+    ('en', ugettext('English')),
+    ('es', ugettext('Espanish')),
+)
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
+    os.path.join(BASE_DIR, "mysite/locale"),
+]
 
 TIME_ZONE = 'UTC'
 
