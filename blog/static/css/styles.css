@@ -73,10 +73,10 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #212529;
-  --bs-link-hover-color: #0085A1;
-  --bs-code-color: #d63384;
-  --bs-highlight-bg: #fff3cd;
+  --bs-link-color: #1f245c;
+  --bs-link-hover-color: #7c81b8;
+  --bs-code-color: #1f245c;
+  --bs-highlight-bg: #7c81b8;
 }
 
 *,
@@ -10586,7 +10586,6 @@ blockquote {
 }
 
 #mainNav {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;

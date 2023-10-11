@@ -1,3 +1,63 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	line-height: 1.2em;
+    background-color: #fefefe;
+}
+
 .masthead {
-    background: url('home-bg.jpg') no-repeat center center !important;
+	margin: 0;
+    background: url("https://fastly.picsum.photos/id/51/5000/3333.jpg?hmac=9dZb89mIRt-mPQpI_ScJAxVsNI82SFCGOuiKsvGSchY") !important;
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+    color: #fff !important;
+}
+
+.navbar-brand img{
+    width: 100px;
+    height: auto;
+}
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, hr {
+    color: #1f245c !important;
+  }
+
+#mainNav {
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #7c81b8;
+    background-color: #1f245c;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main-container {
+    margin-top: 100px;
+}
+
+.description {
+    text-align: right;
+    text-decoration: none;
+}
+
+.description-test {
+    text-decoration: none;
+}
+
+.btn-secondary {
+    --bs-btn-bg: #1f245c !important;
+}
+
+footer {
+    margin-top: 100px;
 }
