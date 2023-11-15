@@ -24,7 +24,7 @@ def friend_detail(request, pk):
     friend = get_object_or_404(SecrectFriend, pk=pk)
     return render(request, 'secrectfrend/friend_detail.html', {'friend': friend})
 
-@login_required
+@login_required(login_url="/accounts/login/")
 def get_secrect_friend(request):
     my_id = request.user.id
     current_user, created = SecrectFriend.objects.get_or_create(user_id=my_id)
