@@ -1,0 +1,56 @@
+{% extends 'secrectfrend/base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'my_friend' %}">{% trans "Conocer Amigo Secreto" %}</a></li>
+<h2></h2>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-secondary float-end">Guardar</button>
+</form>
+
+
+    {% for post in page_obj %}
+        <!-- Post preview-->
+        <div class="post-preview">
+            <a href="friend.html">
+                <h2 class="post-title"><a href="{% url 'friend_detail' pk=friend.pk %}">{% trans friend.user.get_username %}</a></h2>
+            </a>
+            <p class="post-meta mt-3">
+                {% trans "Posted by:" %}
+                <b>{% trans friend.user.get_username %}</b>
+            </p>
+        </div>
+        <!-- Divider-->
+        <hr class="my-4 mb-5" />
+    {% endfor %}
+
+    
+    <!-- Pager-->
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+        
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+{% endblock content %}

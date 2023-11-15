@@ -1,0 +1,16 @@
+{% extends 'secrectfrend/base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">{{ friend }}</h1>
+  
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url 'friend-list' %}" role="button">Inicio</a>
+    </p>
+  </div>
+
+{% endblock content %}
