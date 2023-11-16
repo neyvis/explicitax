@@ -9,16 +9,15 @@ from django.utils import timezone
 from .models import SecrectFriend
 
 def friends_list(request):
-    friends = SecrectFriend.objects.all()
+    friends = User.objects.all()
     print(friends)
     return render(request, 'secrectfrend/friend_list.html', {'friends': friends})
 
 
 from django.views.generic import ListView
 
-class FriendsListView(ListView):
-    paginate_by = 10
-    model = SecrectFriend
+class UserListView(ListView):
+    model = User
 
 def friend_detail(request, pk):
     friend = get_object_or_404(SecrectFriend, pk=pk)

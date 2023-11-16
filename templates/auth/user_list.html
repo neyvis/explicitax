@@ -4,23 +4,26 @@
 {% load i18n %}
 
 {% block content %}
-<h2>Amigos Navidad 2023</h2>
-<hr class="my-4 mb-5" />
 
-    {% for friend in friends %}
+
+    {% for friend in page_obj %}
         <!-- Post preview-->
         <div class="post-preview">
             <a href="friend.html">
-                <h2 class="post-title"><a href="{% url 'friend_detail' pk=friend.pk %}">{% trans friend.get_username %}</a></h2>
+                <h2 class="post-title"><a href="{% url 'friend_detail' pk=friend.pk %}">{% trans friend.get_full_name %}</a></h2>
             </a>
             <p class="post-meta mt-3">
                 {% trans "Posted by:" %}
-                <b>{% trans friend.get_username %}</b>
+                <b><a href="{% url 'friend_detail' pk=friend.pk %}">{% trans friend.get_username %}</a></b>
             </p>
         </div>
         <!-- Divider-->
         <hr class="my-4 mb-5" />
+        <!-- If object_list is empty  -->
+    {% empty %} 
+    <li>No objects yet.</li> 
     {% endfor %}
+
         
         
         <!-- Bootstrap core JS-->
